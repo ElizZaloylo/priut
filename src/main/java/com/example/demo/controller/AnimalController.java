@@ -18,6 +18,7 @@ public class AnimalController {
     public ResponseEntity<CatDTO> getCat(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(animalService.getCat(id));
     }
+
     @GetMapping("/bird/{id}")
     public ResponseEntity<BirdDTO> getBird(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(animalService.getBird(id));
@@ -38,4 +39,5 @@ public class AnimalController {
     }
 
 
+// comment
 }
