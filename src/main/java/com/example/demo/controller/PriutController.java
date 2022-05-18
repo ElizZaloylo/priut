@@ -22,6 +22,11 @@ public class PriutController {
         return priutService.getAnimalsCount(id);
     }
 
+    @GetMapping("/{id}/cats/count")
+    private Integer getCatsCount(@PathVariable(value ="id") Integer id){
+        return priutService.getCatsCount(id);
+    }
+
     @GetMapping("/{id}/priut")
     private String getNamePriut(@PathVariable("id") Integer id){
         return priutService.getNamePriut(id);
