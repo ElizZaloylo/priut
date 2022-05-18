@@ -5,7 +5,6 @@ import java.util.List;
 
 @Entity
 public class PriutEntity {
-
     private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -90,10 +89,6 @@ public class PriutEntity {
     }
 
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public PriutEntity(String name) {
         this.name = name;
     }
 }

@@ -35,21 +35,25 @@ public class PriutService {
 
     public Integer getAnimalsCount(Integer id) {
         PriutEntity priutEntity = priutRepository.findById(id).get();
-        priutEntity.getBirdList().size();
-        priutEntity.getCatList().size();
-        priutEntity.getDogList().size();
-        return priutEntity.getDogList().size() + priutEntity.getCatList().size() + priutEntity.getBirdList().size();
-
-
-
+        Integer birdCount = priutEntity.getBirdList().size();
+        Integer catCount = priutEntity.getCatList().size();
+        Integer dogCount = priutEntity.getDogList().size();
+        return dogCount + catCount + birdCount;
 
     }
     public String getNamePriut(Integer id){
         PriutEntity priutEntity = priutRepository.findById(id).get();
-        priutEntity.getName();
-        return getNamePriut(id);
+        String namePriut = priutEntity.getName();
+        return namePriut;
 
     }
+
+    public Integer getCatsCount(Integer id){
+        PriutEntity priutEntity = priutRepository.findById(id).get();
+        Integer catCount = priutEntity.getCatList().size();
+        return catCount;
+    }
+
 
     @Transactional
     public void addPriut(PriutDTO priutDTO) {
