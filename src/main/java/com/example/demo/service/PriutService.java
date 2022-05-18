@@ -11,6 +11,7 @@ import com.example.demo.repository.PriutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -52,6 +53,18 @@ public class PriutService {
         PriutEntity priutEntity = priutRepository.findById(id).get();
         Integer catCount = priutEntity.getCatList().size();
         return catCount;
+    }
+
+    public Integer getDogsCount(Integer id){
+        PriutEntity priutEntity = priutRepository.findById(id).get();
+        Integer dogsCount = priutEntity.getDogList().size();
+        return dogsCount;
+    }
+
+    public Integer getBirdsCount(Integer id){
+        PriutEntity priutEntity = priutRepository.findById(id).get();
+        Integer birdsCount = priutEntity.getBirdList().size();
+        return birdsCount;
     }
 
 
