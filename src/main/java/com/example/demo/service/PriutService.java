@@ -38,7 +38,7 @@ public class PriutService {
         Integer birdCount = priutEntity.getBirdList().size();
         Integer catCount = priutEntity.getCatList().size();
         Integer dogCount = priutEntity.getDogList().size();
-        return priutEntity.getDogList().size() + priutEntity.getCatList().size() + priutEntity.getBirdList().size();
+        return dogCount + catCount + birdCount;
 
     }
     public String getNamePriut(Integer id){
@@ -51,7 +51,7 @@ public class PriutService {
     public Integer getCatsCount(Integer id){
         PriutEntity priutEntity = priutRepository.findById(id).get();
         Integer catCount = priutEntity.getCatList().size();
-        return priutEntity.getCatList().size();
+        return catCount;
     }
 
 
