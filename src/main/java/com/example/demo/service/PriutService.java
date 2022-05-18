@@ -23,6 +23,7 @@ public class PriutService {
     public PriutDTO getPriut(Integer id) {
         PriutEntity priutEntity =  priutRepository.findById(id).get();
         PriutDTO priutDTO = new PriutDTO();
+        priutDTO.setName(priutEntity.getName());
         priutDTO.setListBird(BirdMapper.mapListEntityToListDTO(priutEntity.getBirdList()));
         priutDTO.setListCat(CatMapper.mapListEntityToListDTO(priutEntity.getCatList()));
         priutDTO.setListDog(DogMapper.mapListEntityToDTO(priutEntity.getDogList()));
@@ -43,10 +44,17 @@ public class PriutService {
 
 
     }
+    public String getNamePriut(Integer id){
+        PriutEntity priutEntity = priutRepository.findById(id).get();
+        priutEntity.getName();
+        return getNamePriut(id);
+
+    }
 
     @Transactional
     public void addPriut(PriutDTO priutDTO) {
         PriutEntity priutEntity = new PriutEntity();
+        priutEntity.setName(priutDTO.getName());
         priutEntity.setBirdList(BirdMapper.mapListDTOtoEntity(priutDTO.getListBird()));
         priutEntity.setCatList(CatMapper.mapListDTOtoListEntity(priutDTO.getListCat()));
         priutEntity.setDogList(DogMapper.mapListDTOtoListEntity(priutDTO.getListDog()));

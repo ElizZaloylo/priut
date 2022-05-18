@@ -4,6 +4,8 @@ import java.util.List;
 
 public class PriutDTO {
 
+    private String name;
+
     private List<DogDTO> listDog;
     private List<CatDTO> listCat;
     private List<BirdDTO> listBird;
@@ -11,6 +13,18 @@ public class PriutDTO {
     private List<EmployeeDTO> listEmployee;
 
     private DirectorDTO directorDTO;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public PriutDTO(String name) {
+        this.name = name;
+    }
 
     public DirectorDTO getDirectorDTO() {
         return directorDTO;

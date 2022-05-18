@@ -5,6 +5,8 @@ import java.util.List;
 
 @Entity
 public class PriutEntity {
+
+    private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -81,6 +83,18 @@ public class PriutEntity {
 
     public void setEmployeeEntities(List<EmployeeEntity> employeeEntities) {
         this.employeeEntities = employeeEntities;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public PriutEntity(String name) {
+        this.name = name;
     }
 }
 
