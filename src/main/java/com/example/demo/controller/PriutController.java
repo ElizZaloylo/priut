@@ -21,6 +21,10 @@ public class PriutController {
     private Integer getAnimalsCount(@PathVariable(value="id") Integer id){
         return priutService.getAnimalsCount(id);
     }
+    @GetMapping("/{id}/priut")
+    private String getNamePriut(@PathVariable("id")Integer id){
+        return priutService.getNamePriut(id);
+    }
 
     @PostMapping
     public void addPriut(@RequestBody PriutDTO priutDTO) {
