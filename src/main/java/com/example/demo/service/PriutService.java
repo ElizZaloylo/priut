@@ -46,8 +46,8 @@ public class PriutService {
     }
     public String getNamePriut(Integer id){
         PriutEntity priutEntity = priutRepository.findById(id).get();
-        priutEntity.getName();
-        return getNamePriut(id);
+        String namePriut = priutEntity.getName();
+        return namePriut;
 
     }
 
