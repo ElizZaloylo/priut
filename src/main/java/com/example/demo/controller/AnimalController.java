@@ -28,7 +28,6 @@ public class AnimalController {
     public void addCat(@RequestBody CatDTO catDTO) {
         animalService.addCat(catDTO);
     }
-
     @DeleteMapping("/cat/{id}")
     public void deleteCat(@PathVariable("id") Integer id) {
         animalService.deleteCat(id);
@@ -38,6 +37,4 @@ public class AnimalController {
         animalService.deleteBird(id);
     }
 
-
-// comment
 }

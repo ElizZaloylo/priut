@@ -1,18 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.BirdDTO;
+
 import com.example.demo.dto.PriutDTO;
-import com.example.demo.entity.BirdEntity;
-import com.example.demo.entity.EmployeeEntity;
 import com.example.demo.entity.PriutEntity;
 import com.example.demo.mapper.*;
-import com.example.demo.repository.BirdRepository;
 import com.example.demo.repository.PriutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
-import java.util.List;
+
 
 @Service
 public class PriutService {
@@ -41,19 +37,28 @@ public class PriutService {
         return dogCount + catCount + birdCount;
 
     }
-    public String getNamePriut(Integer id){
+    public String getNamePriut(Integer id) {
         PriutEntity priutEntity = priutRepository.findById(id).get();
         String namePriut = priutEntity.getName();
         return namePriut;
 
     }
 
-    public Integer getCatsCount(Integer id){
+    public Integer getCatsCount(Integer id) {
         PriutEntity priutEntity = priutRepository.findById(id).get();
         Integer catCount = priutEntity.getCatList().size();
         return catCount;
     }
 
+    public Integer getDogsCount(Integer id) {
+        PriutEntity priutEntity = priutRepository.findById(id).get();
+        Integer dogsCount = priutEntity.getDogList().size();
+        return dogsCount;
+    }
+
+    public Integer getBirdsCount(Integer id) {
+        return priutRepository.findById(id).get().getBirdList().size();
+    }
 
     @Transactional
     public void addPriut(PriutDTO priutDTO) {
@@ -66,6 +71,6 @@ public class PriutService {
         priutEntity.setEmployeeEntities(EmployeeMapper.mapListDTOtoEntity(priutDTO.getListEmployee()));
         priutRepository.save(priutEntity);
     }
-    public void deletePriut(Integer id){priutRepository.deleteById(id);}
+    public void deletePriut(Integer id) {priutRepository.deleteById(id);}
 
 }
