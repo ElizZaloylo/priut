@@ -17,14 +17,10 @@ public class EmployeeEntity {
     private String name;
 
     @Id
-    @Getter
-    @Setter
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @ManyToOne
-    @Setter
-    @Getter
     private PriutEntity priutEntity;
 
 

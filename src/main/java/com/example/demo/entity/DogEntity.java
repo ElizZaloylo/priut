@@ -11,9 +11,7 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class DogEntity extends AnimalEntity {
 
-
-
-    public DogEntity(String archi, int i, String white) {
-
+    public DogEntity(String name, int age, String color) {
+        super(name, age, color);
     }
 }

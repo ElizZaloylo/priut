@@ -34,4 +34,10 @@ public class AnimalEntity {
         this.id = id;
         this.price = price;
     }
+
+    public AnimalEntity(String name, int age, String color) {
+        this.name = name;
+        this.age = age;
+        this.color = color;
+    }
 }
