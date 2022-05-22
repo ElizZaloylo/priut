@@ -1,31 +1,31 @@
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @MappedSuperclass
+@NoArgsConstructor
+@Setter
+@Getter
 public class AnimalEntity {
+
     private String name;
+
     private int age;
+
     private String color;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonIgnore
     private int id;
+
     private int price;
-
-    public AnimalEntity(String name, int age, String color, int id) {
-
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
     public AnimalEntity(String name, int age, String color, int id, int price) {
         this.name = name;
@@ -35,41 +35,9 @@ public class AnimalEntity {
         this.price = price;
     }
 
-
-
-    public AnimalEntity() {
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public AnimalEntity(String name, int age, String color) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
         this.age = age;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
         this.color = color;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
