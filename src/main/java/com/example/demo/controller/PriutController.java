@@ -33,12 +33,12 @@ public class PriutController {
     }
 
     @GetMapping("/{id}/birds/count")
-    private Integer getBirdsCount(@PathVariable(value = "id") Integer id){
+    private Integer getBirdsCount(@PathVariable(value = "id") Integer id) {
         return priutService.getBirdsCount(id);
     }
 
     @GetMapping("/{id}/priut")
-    private String getNamePriut(@PathVariable("id") Integer id){
+    private String getNamePriut(@PathVariable("id") Integer id) {
         return priutService.getNamePriut(id);
     }
 
