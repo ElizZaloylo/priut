@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.PriutDTO;
-import com.example.demo.entity.PriutEntity;
 import com.example.demo.service.PriutService;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -50,7 +49,7 @@ public class PriutControllerTest {
         Mockito.when(mockPriutService.getDogsCount(6)).thenReturn(expectedResult);
         Integer actualResult = mockPriutController.getDogsCount(6);
         Assertions.assertEquals(expectedResult, actualResult);
-        }
+    }
 
     @Test
     public void getPriutTest() {
@@ -58,14 +57,14 @@ public class PriutControllerTest {
         Mockito.when(mockPriutService.getPriut(27)).thenReturn(expectedResult);
         PriutDTO actualResult = mockPriutController.getPriut(27);
         Assertions.assertEquals(expectedResult, actualResult);
-        }
-        private PriutDTO createPriutDTO() {
+    }
+
+    private PriutDTO createPriutDTO() {
         PriutDTO priutDTO = new PriutDTO();
         priutDTO.setName("Priut");
         return priutDTO;
-        }
-//
     }
+}
 
 
 
