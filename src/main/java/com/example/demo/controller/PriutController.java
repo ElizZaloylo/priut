@@ -10,35 +10,35 @@ import org.springframework.web.bind.annotation.*;
 public class PriutController {
 
     @Autowired
-    private PriutService priutService;
+    public PriutService priutService;
 
     @GetMapping("/{id}")
-    private PriutDTO getPriut(@PathVariable("id") Integer id) {
+    public PriutDTO getPriut(@PathVariable("id") Integer id) {
         return priutService.getPriut(id);
     }
 
     @GetMapping("/{id}/animals/count")
-    private Integer getAnimalsCount(@PathVariable(value = "id") Integer id) {
+    public Integer getAnimalsCount(@PathVariable(value = "id") Integer id) {
         return priutService.getAnimalsCount(id);
     }
 
     @GetMapping("/{id}/cats/count")
-    private Integer getCatsCount(@PathVariable(value = "id") Integer id) {
+    public Integer getCatsCount(@PathVariable(value = "id") Integer id) {
         return priutService.getCatsCount(id);
     }
 
     @GetMapping("/{id}/dogs/count")
-    private Integer getDogsCount(@PathVariable(value = "id") Integer id) {
+    public Integer getDogsCount(@PathVariable(value = "id") Integer id) {
         return priutService.getDogsCount(id);
     }
 
     @GetMapping("/{id}/birds/count")
-    private Integer getBirdsCount(@PathVariable(value = "id") Integer id) {
+    public Integer getBirdsCount(@PathVariable(value = "id") Integer id) {
         return priutService.getBirdsCount(id);
     }
 
     @GetMapping("/{id}/priut")
-    private String getNamePriut(@PathVariable("id") Integer id) {
+    public String getNamePriut(@PathVariable("id") Integer id) {
         return priutService.getNamePriut(id);
     }
 
