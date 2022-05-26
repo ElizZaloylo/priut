@@ -43,36 +43,27 @@ public class PriutControllerTest {
         Integer actualResult = mockPriutController.getBirdsCount(5);
         Assertions.assertEquals(expectedResult, actualResult);
     }
+
     @Test
     public void getDogsTest() {
         Integer expectedResult = 4;
         Mockito.when(mockPriutService.getDogsCount(6)).thenReturn(expectedResult);
         Integer actualResult = mockPriutController.getDogsCount(6);
         Assertions.assertEquals(expectedResult, actualResult);
-
         }
 
-        @Test
-        public void getPriutTest() {
-        PriutDTO expectedResult = priutDTO();
+    @Test
+    public void getPriutTest() {
+        PriutDTO expectedResult = createPriutDTO();
         Mockito.when(mockPriutService.getPriut(27)).thenReturn(expectedResult);
         PriutDTO actualResult = mockPriutController.getPriut(27);
         Assertions.assertEquals(expectedResult, actualResult);
-
         }
-
-        private PriutDTO priutDTO() {
+        private PriutDTO createPriutDTO() {
         PriutDTO priutDTO = new PriutDTO();
-        priutDTO().setListBird(priutDTO().getListBird());
-        priutDTO().setName(priutDTO().getName());
-        priutDTO().setListDog(priutDTO().getListDog());
-        priutDTO().setListCat(priutDTO().getListCat());
-        priutDTO().setDirectorDTO(priutDTO().getDirectorDTO());
-        priutDTO().setListEmployee(priutDTO().getListEmployee());
-        return priutDTO();
+        priutDTO.setName("Priut");
+        return priutDTO;
         }
-
-
 
     }
 
