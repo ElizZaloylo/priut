@@ -64,7 +64,7 @@ public class PriutControllerTest {
         priutDTO.setName("Priut");
         return priutDTO;
         }
-
+//
     }
 
 
