@@ -10,6 +10,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.*;
+
 @RunWith(MockitoJUnitRunner.class)
 public class PriutControllerTest {
 
@@ -25,6 +27,7 @@ public class PriutControllerTest {
         Mockito.when(mockPriutService.getAnimalsCount(24)).thenReturn(expectedResult);
         Integer actualResult = mockPriutController.getAnimalsCount(24);
         Assertions.assertEquals(expectedResult, actualResult);
+        Mockito.verify(mockPriutService, times(1)).getAnimalsCount(24);
     }
 
     @Test
@@ -33,6 +36,7 @@ public class PriutControllerTest {
         Mockito.when(mockPriutService.getCatsCount(26)).thenReturn(expectedResult);
         Integer actualResult = mockPriutController.getCatsCount(26);
         Assertions.assertEquals(expectedResult, actualResult);
+        Mockito.verify(mockPriutService, times(1)).getCatsCount(26);
     }
 
     @Test
@@ -41,6 +45,7 @@ public class PriutControllerTest {
         Mockito.when(mockPriutService.getBirdsCount(5)).thenReturn(expectedResult);
         Integer actualResult = mockPriutController.getBirdsCount(5);
         Assertions.assertEquals(expectedResult, actualResult);
+        Mockito.verify(mockPriutService, times(1)).getBirdsCount(5);
     }
 
     @Test
@@ -49,6 +54,7 @@ public class PriutControllerTest {
         Mockito.when(mockPriutService.getDogsCount(6)).thenReturn(expectedResult);
         Integer actualResult = mockPriutController.getDogsCount(6);
         Assertions.assertEquals(expectedResult, actualResult);
+        Mockito.verify(mockPriutService, times(1)).getDogsCount(6);
     }
 
     @Test
@@ -57,12 +63,37 @@ public class PriutControllerTest {
         Mockito.when(mockPriutService.getPriut(27)).thenReturn(expectedResult);
         PriutDTO actualResult = mockPriutController.getPriut(27);
         Assertions.assertEquals(expectedResult, actualResult);
+        Mockito.verify(mockPriutService, times(1)).getPriut(27);
     }
 
     private PriutDTO createPriutDTO() {
         PriutDTO priutDTO = new PriutDTO();
         priutDTO.setName("Priut");
         return priutDTO;
+    }
+
+    @Test
+    public void getNamePriutTest() {
+        String expectedResult = "Priut";
+        Mockito.when(mockPriutService.getNamePriut(4)).thenReturn(expectedResult);
+        String actualResult = mockPriutController.getNamePriut(4);
+        Assertions.assertEquals(expectedResult, actualResult);
+        Mockito.verify(mockPriutService, times(1)).getNamePriut(4);
+    }
+
+    @Test
+    public void testAddPriut() {
+        PriutDTO priutDTO = createPriutDTO();
+        mockPriutController.addPriut(priutDTO);
+        Mockito.verify(mockPriutService, times(1))
+                .addPriut(priutDTO);
+    }
+
+    @Test
+    public void testDeletePriut() {
+        mockPriutController.deletePriut(5);
+        Mockito.verify(mockPriutService, times(1))
+                .deletePriut(5);
     }
 }
 
