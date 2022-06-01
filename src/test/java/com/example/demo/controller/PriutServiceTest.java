@@ -34,8 +34,7 @@ public class PriutServiceTest {
         PriutDTO expectedResult = createPriutDTO();
         Mockito.when(mockPriutRepository.findById(27)).thenReturn(Optional.of(priutEntity));
         PriutDTO actualResult = mockPriutService.getPriut(27);
-        Assertions.assertEquals(createPriutEntity().getName(), createPriutDTO().getName());
-
+        Assertions.assertEquals(expectedResult.getName(), actualResult.getName());
     }
 
     private PriutEntity createPriutEntity() {
@@ -85,8 +84,8 @@ public class PriutServiceTest {
     @Test
     public void getCatsCountTest() {
         PriutEntity priutEntity = new PriutEntity();
-        List<CatEntity>  catEntityList = new ArrayList<>();
-        CatEntity catEntity = new CatEntity("Chak", 10, "Black", 4,300);
+        List<CatEntity> catEntityList = new ArrayList<>();
+        CatEntity catEntity = new CatEntity("Chak", 10, "Black", 4, 300);
         CatEntity catEntity1 = new CatEntity("Kok", 5, "Green", 8, 54);
         catEntityList.add(catEntity);
         catEntityList.add(catEntity1);
@@ -142,9 +141,4 @@ public class PriutServiceTest {
         mockPriutService.deletePriut(3);
         Mockito.verify(mockPriutRepository, Mockito.times(1)).deleteById(3);
     }
-
-
-
-
-
 }
